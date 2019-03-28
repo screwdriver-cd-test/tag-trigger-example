@@ -1,6 +1,6 @@
 # Tag Trigger Example
 
-To execute a job by a tag push event in Screwdriver v4, you can specify `~tag` requires property about your arbitrary jobs.
+To execute a job by a tag push event in Screwdriver.cd, you can specify `~tag` requires property about your arbitrary jobs.
 
 ### Example
 
