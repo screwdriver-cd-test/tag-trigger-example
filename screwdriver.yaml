@@ -21,4 +21,10 @@ jobs:
         steps:
             - echo: |
                 echo 'this job is executed by a tag/release push event.'
-        requires: [~release, ~tag]        
+        requires: [~release, ~tag]
+    tag-branch-triggered-job:
+        image: node:10
+        steps:
+            - echo: |
+                echo 'this job is executed by a tag push event.'
+        requires: [~tag:/snapshot/]        
