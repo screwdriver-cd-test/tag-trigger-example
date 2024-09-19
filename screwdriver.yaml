@@ -1,30 +1,30 @@
 jobs:
     test-job:
-        image: node:10
+        image: node:20
         steps:
             - echo: echo 'this is test job.'
         requires: [~commit, ~pr]
     tag-triggered-job:
-        image: node:10
+        requires: [~commit]
+        image: node:20
         steps:
             - echo: |
                 echo 'this job is executed by a tag push event.'
-        requires: [~tag]
     release-triggered-job:
-        image: node:10
+        image: node:20
         steps:
             - echo: |
                 echo 'this job is executed by a release push event.'
         requires: [~release]
     combo-triggered-job:
-        image: node:10
+        image: node:20
         steps:
             - echo: |
                 echo 'this job is executed by a tag/release push event.'
         requires: [~release, ~tag]
     tag-branch-triggered-job:
-        image: node:10
+        image: node:20
         steps:
             - echo: |
                 echo 'this job is executed by a tag push event.'
-        requires: [~tag:/snapshot/]        
+        requires: [~tag:/^v1\.*/]       
